@@ -26,3 +26,17 @@ def init():
     turtle.pensize( PEN_WIDTH )
     turtle.penup()
     turtle.setposition( -150, -150 )
+
+def drawsquares(sidelength, depth):
+
+
+
+def main() -> None:
+    depth = input("What depth?")
+    init()
+    drawsquares(300, int(depth))
+    turtle.mainloop()
+
+
+if __name__ == '__main__':
+    main()
