@@ -36,6 +36,15 @@ def drawsquares(sidelength, depth):
             turtle.color("blue")
         else:
             turtle.color("orange")
+    turtle.forward(sidelength)
+    turtle.left(90)
+    turtle.forward(sidelength/2)
+    turtle.left(45)
+    newsidelength = math.sqrt(math.pow(sidelength,2)/8)
+    drawsquares(newsidelength, depth-1)
+    turtle.right(45)
+    turtle.forward(sidelength/2)
+    turtle.left(90)
 
 
 def main() -> None:
