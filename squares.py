@@ -28,7 +28,14 @@ def init():
     turtle.setposition( -150, -150 )
 
 def drawsquares(sidelength, depth):
-
+    turtle.pendown()
+    if depth <= 0:
+        return
+    for i in range(2):
+        if depth % 2 == 0:
+            turtle.color("blue")
+        else:
+            turtle.color("orange")
 
 
 def main() -> None:
