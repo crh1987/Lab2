@@ -25,24 +25,32 @@ def init():
     turtle.speed(5)
     turtle.pensize( PEN_WIDTH )
     turtle.penup()
-    turtle.setposition( -150, -150 )
+    turtle.setposition( -150, -150 ) #make it more centered on the screen
 
 def drawsquares(sidelength, depth):
-    turtle.pendown()
-    if depth <= 0:
+    """
+       Takes sidelength and depth and draws that many squares in a given pattern
+
+        :param sidelength: how long the first square's sides are, kept at 300
+        :param depth: how many times the code is repeated/ recursively called
+        :post: turtle is at -150,-150, facing east (0 degrees), pen down
+        """
+
+    turtle.pendown() #start with down pen
+    if depth <= 0:      #base case
         return
-    for i in range(2):
-        if depth % 2 == 0:
+    for i in range(2):      #for loop to repeat twice
+        if depth % 2 == 0:      #changing colors: evens are blue and odd depths are orange
             turtle.color("blue")
         else:
             turtle.color("orange")
-        turtle.forward(sidelength)
+        turtle.forward(sidelength)      #start on first square
         turtle.left(90)
-        turtle.forward(sidelength/2)
-        turtle.left(45)
-        newsidelength = math.sqrt(math.pow(sidelength,2)/8)
-        drawsquares(newsidelength, depth-1)
-        turtle.right(45)
+        turtle.forward(sidelength/2) #continue to where next square starts
+        turtle.left(45)         #start drawing next square at 45 degree angle
+        newsidelength = math.sqrt(math.pow(sidelength,2)/8)     #using pythagorean's theorem, the sidelength should be sqrt(x^2/8)
+        drawsquares(newsidelength, depth-1)     #recursively call so that this process is repeated until depth is zero
+        turtle.right(45)        #after all of the above code resolves, begin finishing the rest of the squares, orient right 45 degrees to offset the leftward 45 degree turn
         turtle.forward(sidelength/2)
         turtle.left(90)
 
